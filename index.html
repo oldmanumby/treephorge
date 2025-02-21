@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Basic SEO -->
+    <title>Treeforj - ASCII Tree Diagram and Structure Generator + Exporter</title>
+    <meta name="description" content="Create and export ASCII tree diagrams with support for markdown, file structures, and customizable formatting. Free online tool for developers and documentation.">
+    <meta name="keywords" content="ASCII tree generator, directory structure, markdown tree, file structure generator, tree diagram">
+    <meta name="author" content="B.A. Umberger">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oldmanumby.github.io/TreeForj/">
+    <meta property="og:title" content="Treeforj - ASCII Tree Diagram Generator">
+    <meta property="og:description" content="Create and export ASCII tree diagrams with support for markdown, file structures, and customizable formatting.">
+    <meta property="og:image" content="https://oldmanumby.github.io/TreeForj/logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://[your-domain]/treeforj">
+    <meta name="twitter:title" content="Treeforj - ASCII Tree Diagram Generator">
+    <meta name="twitter:description" content="Create and export ASCII tree diagrams with support for markdown, file structures, and customizable formatting.">
+    <meta name="twitter:image" content="https://oldmanumby.github.io/TreeForj/logo.png">
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="license" content="MIT">
+    <link rel="canonical" href="https://oldmanumby.github.io/TreeForj/">
+    
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#24292e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><a href="https://oldmanumby.github.io/TreeForj">Treeforj</a></h1>
+        <h2 class="subtitle">An ASCII Tree Diagram and Structure Generator + Exporter</h2>
+        
+        <div class="main-content">
+            <div class="input-output">
+                <textarea id="input" placeholder="Enter your directory structure here...
+- Use 2 spaces for each level of indentation.
+- Add a trailing slash to change a file to a folder
+- Add comments after # (spacing doesn't matter).
+
+Eample:
+my-project/    # Root project folder
+  src/ #Source code
+    index.js         # Main entry point
+    utils/  # Utility functions
+      helpers.js          # Helper functions and utilities
+  docs/                    # Documentation files
+    guide.md # User guide
+    api.md   # API reference documentation
+  tests/  # Test files
+    unit/ # Unit tests
+    e2e/       # End-to-end tests
+  README.md                  # Project overview"></textarea>
+                <pre id="output"></pre>
+            </div>
+        </div>
+
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <div class="header-buttons">
+                    <button id="export">Export Files</button>
+                    <button id="copy">Copy to Clipboard</button>
+                </div>
+            </div>
+            <div class="settings-grid">
+                <div class="settings-column">
+                    <h4>Theme</h4>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="darkMode">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="setting-label">Dark Mode</span>
+                    </div>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="preserveNumbering" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="setting-label">Preserve Ordering</span>
+                    </div>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="showFolderSlash" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="setting-label">Trailing Slash</span>
+                    </div>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="connectedRoots" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span class="setting-label">Connected Roots</span>
+                    </div>
+                </div>
+
+                <div class="settings-column">
+                    <h4>Display</h4>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="showFolderIcons">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="setting-label">Folder Icons</span>
+                    </div>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="showFileIcons">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="setting-label">File Icons</span>
+                    </div>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="useUpperCase">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="setting-label">All Caps</span>
+                    </div>
+                </div>
+
+                <div class="settings-column">
+                    <h4>Format</h4>
+                    <div class="format-group">
+                        <div class="format-label">Replace Spaces:</div>
+                        <div class="format-radio-group">
+                            <label>
+                                <input type="radio" name="spaceReplacement" value="none" checked>
+                                <span>None</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="spaceReplacement" value="underscore">
+                                <span>Underscore</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="spaceReplacement" value="dash">
+                                <span>Dash</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="spaceReplacement" value="remove">
+                                <span>Remove</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="format-group">
+                        <div class="format-label">Files Exported As:</div>
+                        <div class="format-radio-group">
+                            <label>
+                                <input type="radio" name="fileFormat" value="txt" checked>
+                                <span>Text</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="fileFormat" value="html">
+                                <span>HTML</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="fileFormat" value="md">
+                                <span>Markdown</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="fileFormat" value="keep">
+                                <span>Keep Original</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="setting">
+                        <label class="switch">
+                            <input type="checkbox" id="includeComments" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span class="setting-label">Include Comments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="help-section">
+            <div class="github-link">
+                <a href="https://github.com/OldManUmby/TreeForj" class="github-button">
+                    <svg height="32" viewBox="0 0 16 16" width="32">
+                        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                    <span>View Documentation on GitHub</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

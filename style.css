@@ -1,0 +1,478 @@
+/* Light theme (default) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #333333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    transition: color 0.3s ease;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+
+h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 a:hover {
+    text-decoration: underline;
+}
+
+.dark-mode h1 {
+    color: #e0e0e0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.dark-mode .subtitle {
+    color: #aaa;
+}
+
+h3, h4 {
+    color: #333333;
+    transition: color 0.3s ease;
+    margin: 0 0 1rem 0;
+}
+
+.dark-mode h3,
+.dark-mode h4 {
+    color: #e0e0e0;
+}
+
+.main-content {
+    margin-bottom: 2rem;
+}
+
+.input-output {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+textarea#input {
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: monospace;
+    background-color: #ffffff;
+    color: #333333;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+.dark-mode textarea#input {
+    background-color: #333333;
+    color: #e0e0e0;
+    border-color: #404040;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1976D2;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#output {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: monospace;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.dark-mode #output {
+    background-color: #333333;
+    color: #e0e0e0;
+    border-color: #404040;
+}
+
+/* Settings Panel */
+.settings-panel {
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #dddddd;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .settings-panel {
+    background-color: #2d2d2d;
+    border-color: #404040;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.settings-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.setting-label {
+    margin-left: 1rem;
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .setting-label {
+    color: #e0e0e0;
+}
+
+/* Format Section */
+.format-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.format-label {
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .format-label {
+    color: #e0e0e0;
+}
+
+.format-radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.format-radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dark-mode .format-radio-group label {
+    background-color: #333333;
+    border-color: #404040;
+}
+
+.format-radio-group label:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.dark-mode .format-radio-group label:hover {
+    background-color: #404040;
+}
+
+.format-radio-group input[type="radio"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.format-radio-group input[type="radio"]:checked + span {
+    font-weight: 500;
+    color: #2196F3;
+}
+
+.dark-mode .format-radio-group input[type="radio"]:checked + span {
+    color: #64B5F6;
+}
+
+/* Radio Button Group */
+.setting-group {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .radio-group label {
+    color: #e0e0e0;
+}
+
+.radio-group input[type="radio"] {
+    cursor: pointer;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cccccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.dark-mode .slider {
+    background-color: #666666;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Help Section */
+.help-section {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.help-section h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.help-content {
+    margin-top: 1rem;
+}
+
+.help-content h4 {
+    color: var(--text-primary);
+    margin: 1.5rem 0 0.5rem;
+}
+
+.help-content p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.help-content ul, .help-content ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.help-content li {
+    margin: 0.25rem 0;
+    line-height: 1.5;
+}
+
+.help-content pre {
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+}
+
+.help-content code {
+    background-color: var(--bg-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.dark-mode .help-section {
+    background-color: var(--bg-secondary);
+}
+
+.dark-mode .help-content pre,
+.dark-mode .help-content code {
+    background-color: var(--bg-primary);
+}
+
+/* GitHub Button */
+.github-link {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.github-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #24292e;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.github-button:hover {
+    background-color: #2f363d;
+}
+
+.github-button svg {
+    margin-right: 10px;
+    fill: currentColor;
+}
+
+.dark-mode .github-button {
+    background-color: #2f363d;
+}
+
+.dark-mode .github-button:hover {
+    background-color: #444d56;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .settings-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    textarea#input,
+    #output {
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .settings-panel {
+        padding: 1rem;
+    }
+}
