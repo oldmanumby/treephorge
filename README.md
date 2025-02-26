@@ -1,6 +1,6 @@
 ![Logo](logo.png)
 
-# Treeforge
+# treePhorge
 
 An ASCII tree diagram and structure generator. Designed and tested for AI readability. 
 
